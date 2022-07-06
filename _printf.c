@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	for (x = 0; format && format[x]; x++)
 	{
-			if (format[x] == '%')
+			if (format[x] == '%' && format[x + 1] != '%')
 			{	z = 0;
 
 				while (atr[z].letter != '\0')
@@ -33,8 +33,8 @@ int _printf(const char *format, ...)
 			}
 			else
 				putchar(format[x]);
-		}
+	}
 	
 	va_end(list);
-	return (0);
+	return (x);
 }
