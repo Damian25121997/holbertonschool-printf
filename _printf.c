@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 			{'\0', NULL} };
 
 	va_start(list, format);
-	for (x = 0, c = 1; format && format[x]; c++, x++)
+	for (x = 0, c = 0; format && format[x]; c++, x++)
 	{
 		
 			if (format[x] == '%' && format[x + 1] != '%')
@@ -34,7 +34,6 @@ int _printf(const char *format, ...)
 			else
 				putchar(format[x]);
 	}
-	
 	va_end(list);
-	return (c);
+	return (c - 2);
 }
