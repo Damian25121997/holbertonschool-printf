@@ -2,9 +2,8 @@
 
 int _printf(const char *format, ...)
 {
-	/**char *sep;
-*/	
-	int x, z;
+/**	char *sep;*/
+	int x, z, c;
 	va_list list;
 
 
@@ -16,8 +15,9 @@ int _printf(const char *format, ...)
 			{'\0', NULL} };
 
 	va_start(list, format);
-	for (x = 0; format && format[x]; x++)
+	for (x = 0, c = 1; format && format[x]; c++, x++)
 	{
+		
 			if (format[x] == '%' && format[x + 1] != '%')
 			{	z = 0;
 
@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 				{
 					if (format[x + 1] == atr[z].letter)
 					{
-						atr[z].f(list);
+						c += atr[z].f(list);
 						x++;
 					}
 				z++;
@@ -36,5 +36,5 @@ int _printf(const char *format, ...)
 	}
 	
 	va_end(list);
-	return (x - 1);
+	return (c);
 }
