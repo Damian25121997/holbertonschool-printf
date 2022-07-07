@@ -30,6 +30,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[x] == '%')
 			{
+				
 				z = 0;
 				while (atr[z].letter != '\0')
 				{
@@ -39,9 +40,9 @@ int _printf(const char *format, ...)
 					}
 					z++;
 				}
-				if (format[x + 1] != '%')
+				if (format[x + 1] == '%')
 				{
-					x++;
+					_putchar(format[x + 2]);
 				}
 				x++;
 			}
