@@ -3,7 +3,7 @@
 int _printf(const char *format, ...)
 {
 /**	char *sep;*/
-	int x, z, c = 0, found;
+	int x, z, c = 0;
 	va_list list;
 
 
@@ -18,6 +18,12 @@ int _printf(const char *format, ...)
 		return (-1);
 	for (x = 0; format != NULL && format[x] != '\0'; x++)
 	{
+			if (format[x] == '%' && format[x + 1] == '%')
+			{
+				_putchar('%');
+				x++;
+				c++;
+			}
 			if (format[x] == '%' && format[x + 1] == '\0')
 			{
 				return (-1);
@@ -32,19 +38,8 @@ int _printf(const char *format, ...)
 					if (format[x + 1] == atr[z].letter)
 					{
 						c += atr[z].f(list);
-						found++;
 					}
 					z++;
-				}
-				if (format[x + 1] == '%')
-				{
-					_putchar('%');
-					x += 2;
-				}
-				if (!found)
-				{
-					_putchar(format[x]);
-					_putchar(format[x + 1]);
 				}
 				x++;
 			}
