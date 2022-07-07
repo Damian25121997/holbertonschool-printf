@@ -38,9 +38,10 @@ int _printf(const char *format, ...)
 					{
 						c += atr[z].f(list);
 					}
+					_putchar(format[x]);
+					_putchar(format[x + 1]);
 					z++;
 				}
-				_putchar(format[x]);
 				x++;
 			}
 			else
