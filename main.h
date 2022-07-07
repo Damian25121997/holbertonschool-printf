@@ -8,7 +8,7 @@ int _printf(const char *format, ...);
 int print_number(int n);
 int print_char(va_list list);
 int print_string(va_list list);
-
+int _putchar(char c);
 
 typedef struct prf
 {
