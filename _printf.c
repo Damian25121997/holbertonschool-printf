@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	for (x = 0; format && format[x]; x++)
 	{
-			if (format[x] == '%' && format[x + 1] != '%')
+			if (format[x] == '%')
 			{
 				z = 0;
 				if (format[x + 1] == atr[z].letter)
