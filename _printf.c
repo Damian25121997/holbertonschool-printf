@@ -24,10 +24,8 @@ int _printf(const char *format, ...)
 				x++;
 				c++;
 			}
-			if (format[x] == '%' && format[x + 1] == '\0')
+			else if (format[x] == '%' && format[x + 1] == '\0')
 			{
-				_putchar('\0');
-				x++;
 				return (-1);
 			}
 			else if (format[x] == '%')
