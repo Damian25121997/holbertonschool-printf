@@ -22,8 +22,8 @@ int _printf(const char *format, ...)
 				if (format[x + 1] == atr[z].letter)
 				{
 					c += atr[z].f(list);
-					x++;
 					z++;
+					x++;
 				}
 			}
 			else if (format[x] == '%' && format[x + 1] == '%')
