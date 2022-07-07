@@ -40,6 +40,7 @@ int _printf(const char *format, ...)
 					}
 					z++;
 				}
+				_putchar(format[x]);
 				x++;
 			}
 			else
