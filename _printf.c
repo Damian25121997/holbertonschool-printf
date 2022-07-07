@@ -16,20 +16,19 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	for (x = 0; format && format[x] != '\0'; x++)
 	{
-			if (format[x] == '%')
+			if (format[x] == '%' && format[x + 1] == '%')
 			{
-				z = 0;
+				putchar('%');
+				c++;
+			}
+			else if (format[x] == '%')
+			{
 				if (format[x + 1] == atr[z].letter)
 				{
 					c += atr[z].f(list);
 					z++;
-					x++;
 				}
-			}
-			else if (format[x] == '%' && format[x + 1] == '%')
-			{
-				putchar('%');
-				c++;
+				x++;
 			}
 			else
 			{
