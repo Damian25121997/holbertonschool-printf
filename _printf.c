@@ -24,7 +24,7 @@ int (*get_op_fp(char y))(va_list)
 int _printf(const char *format, ...)
 {
 /**	char *sep;*/
-	int x, z, c = 0;
+	int x, c = 0;
 	va_list list;
 
 
