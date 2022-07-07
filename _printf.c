@@ -15,7 +15,9 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 	if (format == NULL)
+	{	_putchar('H');
 		return (0);
+	}
 	for (x = 0; format != NULL && format[x] != '\0'; x++)
 	{
 			if (format[x] == '%' && format[x + 1] == '%')
