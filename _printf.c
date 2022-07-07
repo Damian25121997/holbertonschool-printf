@@ -32,7 +32,6 @@ int _printf(const char *format, ...)
 			{
 				
 				z = 0;
-				found = 0;
 				while (atr[z].letter != '\0')
 				{
 					if (format[x + 1] == atr[z].letter)
