@@ -11,9 +11,11 @@ int _printf(const char *format, ...)
 			{'s', print_string},
 			/**{'d', print_number},
 			{'i', print_number},
-*/ };
+*/ 			{'\0', NULL} };
 
 	va_start(list, format);
+	if (format == NULL)
+		return (0);
 	for (x = 0; format != NULL && format[x] != '\0'; x++)
 	{
 			if (format[x] == '%' && format[x + 1] == '%')
