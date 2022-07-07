@@ -14,18 +14,23 @@ int _printf(const char *format, ...)
 */ };
 
 	va_start(list, format);
-	for (x = 0; format && format[x] != '\0'; x++)
+	for (x = 0; format != NULL && format[x] != '\0'; x++)
 	{
 			if (format[x] == '%' && format[x + 1] == '%')
 			{
 				_putchar('%');
+				x++;
 				c++;
 			}
 			else if (format[x] == '%')
 			{
-				if (format[x + 1] == atr[z].letter)
+				z = 0;
+				while (atr[z].letter != '\0')
 				{
-					c += atr[z].f(list);
+					if (format[x + 1] == atr[z].letter)
+					{
+						c += atr[z].f(list);
+					}
 					z++;
 				}
 				x++;
