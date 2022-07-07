@@ -39,6 +39,10 @@ int _printf(const char *format, ...)
 					}
 					z++;
 				}
+				if (format[x + 1] != '%')
+				{
+					x++;
+				}
 				x++;
 			}
 			else
