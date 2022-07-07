@@ -1,17 +1,32 @@
 #include "main.h"
 
+int (*get_op_fp(char y))(va_list)
+{
+	int z = 0;
+	print atr[] = { {'c', print_char},
+			{'s', print_string},
+			/**{'d', print_number},
+			{'i', print_number},*/
+ 			{'\0', NULL} };
+
+	while (atr[z].letter != '\0')
+	{
+		if (y == atr[z].letter)
+		{
+			return (atr[z].f);
+		}
+		z++;
+	}
+	return (NULL);
+}
+
+
 int _printf(const char *format, ...)
 {
 /**	char *sep;*/
 	int x, z, c = 0;
 	va_list list;
 
-
-	print atr[] = { {'c', print_char},
-			{'s', print_string},
-			/**{'d', print_number},
-			{'i', print_number},
-*/ 			{'\0', NULL} };
 
 	va_start(list, format);
 	if (format == NULL)
@@ -30,17 +45,15 @@ int _printf(const char *format, ...)
 			}
 			else if (format[x] == '%')
 			{
-				
-				z = 0;
-				while (atr[z].letter != '\0')
+				if (*(get_op_fp(format[x + 1])) == NULL)
 				{
-					if (format[x + 1] == atr[z].letter)
-					{
-						c += atr[z].f(list);
-					}
-					z++;
 					_putchar(format[x]);
 					_putchar(format[x + 1]);
+					c += 2;
+				}
+				else
+				{
+					c += (*(get_op_fp(format[x + 1])))(list);
 				}
 				x++;
 			}
