@@ -3,7 +3,7 @@
 int _printf(const char *format, ...)
 {
 /**	char *sep;*/
-	int x, z, c;
+	int x, z, c = 0;
 	va_list list;
 
 
@@ -11,28 +11,31 @@ int _printf(const char *format, ...)
 			{'s', print_string},
 			/**{'d', print_number},
 			{'i', print_number},
-*/
-			{'\0', NULL} };
+*/ };
 
 	va_start(list, format);
-	for (x = 0, c = 0; format && format[x]; c++, x++)
+	for (x = 0; format && format[x]; x++)
 	{
-		
 			if (format[x] == '%' && format[x + 1] != '%')
-			{	z = 0;
-
-				while (atr[z].letter != '\0')
+			{
+				z = 0;
+				if (format[x + 1] == atr[z].letter)
 				{
-					if (format[x + 1] == atr[z].letter)
-					{
-						c += atr[z].f(list);
-						x++;
-					}
-				z++;
+					c += atr[z].f(list);
+					x++;
+					z++;
 				}
 			}
+			else if (format[x] == '%' && format[x + 1] == '%')
+			{
+				putchar('%');
+				c++;
+			}
 			else
+			{
 				putchar(format[x]);
+				c++;
+			}
 	}
 	va_end(list);
 	return (c);
