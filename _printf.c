@@ -24,13 +24,6 @@ int _printf(const char *format, ...)
 				x++;
 				c++;
 			}
-			else if (format[x + 1] != 'c' && format[x + 1] != 's' && format[x + 1] != '%')
-			{
-				_putchar('%');
-				_putchar(format[x + 1]);
-				x++;
-				c++;
-			}
 			else if (format[x] == '%' && format[x + 1] == '\0')
 			{
 				return (-1);
