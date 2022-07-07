@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 				x++;
 				c++;
 			}
-			if (format[x] == '%' && format[x + 1] == '\0')
+			else if (format[x] == '%' && format[x + 1] == '\0')
 			{
 				return (-1);
 			}
