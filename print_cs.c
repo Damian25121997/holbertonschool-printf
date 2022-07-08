@@ -1,14 +1,24 @@
 #include "main.h"
-
+/**
+ * print_char - prints a character
+ * @list: list of cases
+ * Return: 1
+ */
 int print_char(va_list list)
 {
 	int c;
-	c = va_arg(list, int); 
-		_putchar(c);
-		return (1);
+
+	c = va_arg(list, int);
+
+	_putchar(c);
+	return (1);
 }
 
-
+/**
+ * print_string - prints a string
+ * @list: list of cases
+ * Return: length of string
+ */
 int print_string(va_list list)
 {
 	char *p;
@@ -30,5 +40,3 @@ int print_string(va_list list)
 		_putchar(p[s]);
 	return (s);
 }
-
-
