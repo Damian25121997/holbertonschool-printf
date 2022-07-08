@@ -12,11 +12,9 @@ int (*get_op_fp(char y))(va_list)
 	int z = 0;
 	print atr[] = { {'c', print_char},
 			{'s', print_string},
-			/**
-			 * {'d', print_number},
-			 * {'i', print_number},
-			 */
-			{'\0', NULL} };
+			{'d', print_number},
+			{'i', print_number},
+ 			{'\0', NULL} };
 
 	while (atr[z].letter != '\0')
 	{
