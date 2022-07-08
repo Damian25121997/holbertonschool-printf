@@ -1,4 +1,4 @@
-_printf - Manual Page
+_printf
 
 
 NAME:
