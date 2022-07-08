@@ -1,6 +1,6 @@
 #include "main.h"
 
-void print_number_xd(unsigned n);
+int print_number_xd(unsigned n);
 
 /**
 * print_number - print a number
@@ -14,13 +14,11 @@ int print_number(va_list list)
 		if (n < 0)
 		{
 			_putchar('-');
-			print_number_xd(-(n));
-			return (1);
+			return (print_number_xd(-n) + 1);
 		}
 		else
 		{
-			print_number_xd(n);
-			return (1);
+			return (print_number_xd(n));
 		}
 }
 
@@ -29,12 +27,13 @@ int print_number(va_list list)
 * @n: is an input
 */
 
-void print_number_xd(unsigned int n)
+int print_number_xd(unsigned int n)
 {
-	
+	int c = 0;
+
 	if (n / 10 != 0)
 	{
-		print_number_xd(n / 10);
+		c = print_number_xd(n / 10);
 	}
-	_putchar((n % 10) + '0');
+	return (_putchar((n % 10) + '0') + c);
 }
